@@ -4,7 +4,7 @@ const videoGrid = document.getElementById('video-frame');
 const peer = new Peer(undefined, {
     path: '/peerjs',
     host: '/',
-    port: '443'
+    port: '3030'
 })
 
 const streamPayload = {
@@ -14,7 +14,7 @@ const streamPayload = {
 
 let myVideoStream;
 const myVideo = document.createElement('video');
-
+myVideo.muted = true;
 const peers = {}
 
 const getUserStream = async () => {
@@ -57,7 +57,6 @@ function connectToNewUser(userId, stream) {
 }
 
 function addVideoStream(video,stream) {
-    video.muted = true;
     video.srcObject = stream
     video.addEventListener('loadedmetadata', () => {
         video.play()
