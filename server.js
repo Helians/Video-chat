@@ -30,9 +30,9 @@ io.on('connection', socket => {
         socket.to(roomId).broadcast.emit("user-connected", userId);
     });
 
-    // socket.on('disconnect', () => {
-    //     socket.to(roomId).broadcast.emit('user-disconnected', userId)
-    //   })
+    socket.on('disconnect', () => {
+        socket.to(roomId).broadcast.emit('user-disconnected', userId)
+    })
 });
 
 // Listener
